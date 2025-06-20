@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Powered Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // or 'media'
+      theme: {
+        extend: {
+          colors: {
+            primary: 'var(--color-primary)',
+            secondary: 'var(--color-secondary)',
+            accent: 'var(--color-accent)',
+            neutral: 'var(--color-neutral)',
+            'base-100': 'var(--color-base-100)',
+            'base-content': 'var(--color-base-content)',
+            'neutral-focus': 'var(--color-neutral-focus, #a1a1aa)', // Default fallback for neutral-focus
+          },
+          fontFamily: {
+            // These are base definitions. The App.tsx will apply the selected font to the body or a root wrapper.
+            // We reference these font stacks in App.tsx when settings.fontFamily changes.
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+            serif: ['Georgia', 'ui-serif', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+            mono: ['Menlo', 'ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+          },
+        },
+      },
+      plugins: [],
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia&family=Menlo&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #0ea5e9;
+      --color-secondary: #38bdf8;
+      --color-accent: #7dd3fc;
+      --color-neutral: #e0e0e0;
+      --color-base-100: #ffffff;
+      --color-base-content: #1f2937;
+      --color-neutral-focus: #a1a1aa; 
+    }
+    html.dark {
+        --color-neutral-focus: #71717a;
+    }
+    body {
+      /* Default font will be set by JS based on user preference. Fallback here. */
+      font-family: sans-serif; 
+    }
+    /* Custom scrollbar for webkit browsers */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-base-100);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary);
+      border-radius: 10px;
+      border: 2px solid var(--color-base-100);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--color-accent);
+    }
+    /* Style for range inputs to match theme */
+    input[type="range"].accent-primary::-webkit-slider-thumb {
+      background-color: var(--color-primary);
+    }
+    input[type="range"].accent-primary::-moz-range-thumb {
+      background-color: var(--color-primary);
+    }
+    input[type="range"].accent-primary::-ms-thumb {
+      background-color: var(--color-primary);
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+    "react-dom": "https://esm.sh/react-dom@^19.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-base-100 text-base-content">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
